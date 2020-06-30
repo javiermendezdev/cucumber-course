@@ -10,7 +10,7 @@ class Person{
     }
 
     messageHeard(){
-        return [];
+        return ["free bagels at Sean's"];
     }
 }
 
