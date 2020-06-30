@@ -8,6 +8,10 @@ class Person{
     shout(message){
 
     }
+
+    messageHeard(){
+        return [];
+    }
 }
 
 module.exports = Person

@@ -1,5 +1,6 @@
 const Person = require('../../src/shouty.js')
 const { Given, When, Then } = require('cucumber')
+const { assertThat, is } = require('hamjest')
 
 Given('Lucy is located {int} metres from Sean', function (distance) {
   this.lucy = new Person
@@ -9,9 +10,9 @@ Given('Lucy is located {int} metres from Sean', function (distance) {
 
 When('Sean shouts {string}', function (message) {
   this.sean.shout(message)
+  this.message = message
 })
 
 Then('Lucy hears Sean’s message', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending'
+  assertThat(this.lucy.messageHeard(), is([this.message]))
 })
