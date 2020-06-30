@@ -5,6 +5,6 @@ Feature: Hear shout
         Then Lucy hears Sean’s message
 
     Scenario: Listener hears a different message
-        Given Lucy is 15 metre(s) from Sean
+        Given Lucy is located 15 metres from Sean
         When Sean shouts "Free coffee!"
         Then Lucy hears Sean's message

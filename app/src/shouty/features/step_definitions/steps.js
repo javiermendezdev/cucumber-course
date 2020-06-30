@@ -2,17 +2,21 @@ const Person = require('../../src/shouty')
 const { Given, When, Then } = require('cucumber')
 const { assertThat, is } = require('hamjest')
 
-Given('{person} is located/standing {int} metre(s) from Sean', function (lucy, distance) {
-  this.lucy = lucy
-  this.sean = new Person
-  this.lucy.moveTo(distance)
+Given('{person} is located/standing {int} metre(s) from {person}', function (receiver, distance, shouter) {
+  this.shouter = shouter
+  this.receiver = receiver
+  this.receiver.moveTo(distance)
 })
 
-When('Sean shouts {string}', function (message) {
-  this.sean.shout(message)
-  this.message = message
+When('{person} shouts {string}', function (shouter, message) {
+  this.shouter.shout(message)
+  this.receiver.tryHear(message)
 })
 
-Then('Lucy hears Sean’s message', function () {
-  assertThat(this.lucy.messageHeard(), is([this.message]))
-})
+Then('{person} hears {person}’s message', function (person, person2) {
+  assertThat(this.receiver.getMessageHeard(), is(this.shouter.getMessageShouted()))
+});
+
+Then('{person} hears {person}\'s message', function (person, person2) {
+  assertThat(this.receiver.getMessageHeard(), is(this.shouter.getMessageShouted()))
+});
