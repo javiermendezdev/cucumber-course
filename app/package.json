@@ -1,0 +1,21 @@
+{
+  "name": "docker_cucumber",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Javier Méndez <javiermendez.dev@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "server": "node ./src/server.js",
+    "test": "cucumber-js -f node_modules/cucumber-pretty"
+  },
+  "type": "module",
+  "dependencies": {
+    "cucumber": "^6.0.5",
+    "cucumber-pretty": "^6.0.0",
+    "express": "^4.16.1",
+    "hamjest": "^3.7.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.10.3"
+  }
+}
