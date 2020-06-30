@@ -20,3 +20,7 @@ Then('{person} hears {person}’s message', function (person, person2) {
 Then('{person} hears {person}\'s message', function (person, person2) {
   assertThat(this.receiver.getMessageHeard(), is(this.shouter.getMessageShouted()))
 });
+
+Then('{person} doesn`t hear Sean`s message', function (person) {
+  assertThat(this.receiver.getMessageHeard(), is([]))
+});

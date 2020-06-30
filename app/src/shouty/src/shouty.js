@@ -2,11 +2,12 @@ const { __esModule } = require("cucumber/lib/formatter/helpers");
 
 class Person{
 
+    maxMetersForHear = 25
     messagesHeard = []
     messagesSouted = []
 
     moveTo(distance){
-
+        this.distance = distance
     }
 
     shout(message){
@@ -14,7 +15,8 @@ class Person{
     }
 
     tryHear(message){
-        this.messagesHeard.push(message)
+        if(this.distance <= this.maxMetersForHear)
+            this.messagesHeard.push(message)
     }
 
     getMessageHeard(){
