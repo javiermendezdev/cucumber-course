@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "Node.js on Docker",
   "author": "Javier Méndez <javiermendez.dev@gmail.com>",
-  "main": "server.js",
+  "main": "server.mjs",
   "scripts": {
-    "server": "node ./src/server.js",
+    "server": "node ./src/server/server.mjs",
     "test": "cucumber-js -f node_modules/cucumber-pretty"
   },
-  "type": "module",
   "dependencies": {
     "cucumber": "^6.0.5",
     "cucumber-pretty": "^6.0.0",

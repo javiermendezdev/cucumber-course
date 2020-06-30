@@ -5,6 +5,8 @@ default:
 docker-ps:
 	@docker-compose ps
 docker-up:
+	@docker-compose up -d
+docker-up-log:
 	@docker-compose up -d && docker-compose logs -f
 docker-up-build:
 	@docker-compose up -d --build
@@ -14,6 +16,8 @@ install:
 	@docker-compose -f docker-compose.builder.yml run --rm install
 test:
 	@docker-compose exec cucumber-course npm test
+test-shouty:
+	@docker-compose exec cucumber-course npm test /app/src/shouty
 
 define HELP
 # First steps:
